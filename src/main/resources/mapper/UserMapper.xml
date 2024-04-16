@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sxgkd.mapper.UserMapper">
+    <!--新增用户-->
+    <insert id="insert" parameterType="user">
+        insert into user (username, password, email, role)
+        values (#{username}, #{password}, #{email}, #{role})
+    </insert>
+    <!--根据Id获取用户-->
+    <select id="selectById" resultType="user" parameterType="int">
+        select *
+        from user
+        where id = #{id}
+    </select>
+    <!--修改用户信息-->
+    <update id="update" parameterType="user">
+        update user
+        set username = #{username},
+            password = #{password},
+            email    = #{email},
+            role     = #{role}
+        where id = #{id}
+    </update>
+    <!--获取所有用户-->
+    <select id="selectAll" resultType="user">
+        select *
+        from user
+    </select>
+    <!--删除用户-->
+    <delete id="delete" parameterType="int">
+        delete
+        from user
+        where id = #{id}
+    </delete>
+    <!--模糊查询用户-->
+    <select id="selectByKeyword" resultType="user" parameterType="string">
+        select *
+        from user
+        where username like concat('%', #{keyword}, '%')
+    </select>
+    <!--根据用户名和密码查询用户-->
+    <select id="selectByUsernameAndPassword" resultType="user" parameterType="map">
+        select *
+        from user
+        where username = #{username}
+          and password = #{password}
+    </select>
+    <!-- 根据用户名模糊查询用户-->
+    <select id="selectByUsernameBlur" resultType="user" parameterType="string">
+        select *
+        from user
+        where username like concat('%', #{username}, '%')
+    </select>
+</mapper>

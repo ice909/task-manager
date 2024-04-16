@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sxgkd.mapper.TaskMapper">
+    <!--获取所有任务-->
+    <select id="selectAll" resultType="task">
+        SELECT t.*,
+               u1.username AS creatorName,
+               u2.username AS assigneeName
+        FROM task t
+                 LEFT JOIN
+             user u1 ON t.creatorId = u1.id
+                 LEFT JOIN
+             user u2 ON t.assigneeId = u2.id
+    </select>
+    <!--根据Id获取任务-->
+    <select id="selectById" resultType="task" parameterType="int">
+        SELECT t.*,
+               u1.username AS creatorName,
+               u2.username AS assigneeName
+        FROM task t
+                 LEFT JOIN
+             user u1 ON t.creatorId = u1.id
+                 LEFT JOIN
+             user u2 ON t.assigneeId = u2.id
+        WHERE t.id = #{id}
+    </select>
+    <!--新增任务-->
+    <insert id="insert" parameterType="task">
+        insert into task (title, description, deadline, status, creatorId, assigneeId)
+        values (#{title}, #{description}, #{deadline}, #{status}, #{creatorId}, #{assigneeId})
+    </insert>
+    <!--获取用户的任务-->
+    <select id="getTasksByUserId" resultType="task" parameterType="int">
+        SELECT t.*,
+               u1.username AS creatorName,
+               u2.username AS assigneeName
+        FROM task t
+                 LEFT JOIN
+             user u1 ON t.creatorId = u1.id
+                 LEFT JOIN
+             user u2 ON t.assigneeId = u2.id
+        WHERE t.assigneeId = #{userId}
+    </select>
+    <!--分配任务-->
+    <update id="assignTask" parameterType="map">
+        update task
+        set assigneeId = #{userId}
+        where id = #{taskId}
+    </update>
+    <!--修改任务信息-->
+    <update id="update" parameterType="task">
+        update task
+        set title       = #{title},
+            description = #{description},
+            deadline    = #{deadline},
+            status      = #{status},
+            creatorId   = #{creatorId},
+            assigneeId  = #{assigneeId}
+        where id = #{id}
+    </update>
+    <!--删除任务-->
+    <delete id="delete" parameterType="int">
+        delete
+        from task
+        where id = #{id}
+    </delete>
+    <!--模糊查询任务-->
+    <select id="selectByKeyword" resultType="task" parameterType="string">
+        select *
+        from task
+        where title like concat('%', #{keyword}, '%')
+    </select>
+
+    <!-- 模糊查询任务 -->
+    <select id="selectByTitleBlur" resultType="task" parameterType="string">
+        SELECT t.*,
+               u1.username AS creatorName,
+               u2.username AS assigneeName
+        FROM task t
+                 LEFT JOIN
+             user u1 ON t.creatorId = u1.id
+                 LEFT JOIN
+             user u2 ON t.assigneeId = u2.id
+        WHERE t.title LIKE CONCAT('%', #{keyword}, '%')
+    </select>
+</mapper>
