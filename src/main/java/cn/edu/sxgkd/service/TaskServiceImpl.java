@@ -4,10 +4,12 @@ import cn.edu.sxgkd.entity.Task;
 import cn.edu.sxgkd.mapper.TaskMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service("taskService")
+@Transactional
 public class TaskServiceImpl implements ITaskService {
     @Autowired
     private TaskMapper taskMapper;

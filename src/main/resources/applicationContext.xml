@@ -2,13 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans.xsd
                 http://mybatis.org/schema/mybatis-spring
                 http://mybatis.org/schema/mybatis-spring-1.2.xsd
                 http://www.springframework.org/schema/context
-                https://www.springframework.org/schema/context/spring-context.xsd">
+                https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <bean id="config" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -34,9 +34,16 @@
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
-
     <mybatis-spring:scan base-package="cn.edu.sxgkd.mapper"/>
 
     <context:component-scan base-package="cn.edu.sxgkd.service,cn.edu.sxgkd.mapper"/>
 
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="datasource" />
+    </bean>
+    <!-- 指明使用注解的方式来管理事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

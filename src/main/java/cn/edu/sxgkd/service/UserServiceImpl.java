@@ -4,12 +4,14 @@ import cn.edu.sxgkd.entity.User;
 import cn.edu.sxgkd.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service("userService")
+@Transactional
 public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;
@@ -28,7 +30,6 @@ public class UserServiceImpl implements IUserService {
     public int update(User user) {
         return userMapper.update(user);
     }
-
     @Override
     public List<User> selectAll() {
         return userMapper.selectAll();
@@ -47,7 +48,6 @@ public class UserServiceImpl implements IUserService {
         // 否则返回所有用户
         return selectAll();
     }
-
     @Override
     public User selectByUsernameAndPassword(String username, String password) {
         Map<String, String> map = new HashMap<>();
