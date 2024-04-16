@@ -46,7 +46,7 @@
                 </c:if>
                 <!-- 普通用户管理标签 -->
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">任务管理</a>
+                    <a class="nav-link active" href="javascript:void(0)">任务管理</a>
                 </li>
             </ul>
         </div>

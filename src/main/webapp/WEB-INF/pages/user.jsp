@@ -38,10 +38,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"> <!-- 如果是管理员登录，高亮用户管理标签 -->
-                    <a class="nav-link active" href="#">用户管理</a>
+                    <a class="nav-link active" href="javascript:void(0)">用户管理</a>
                 </li>
                 <li class="nav-item"> <!-- 普通用户管理标签 -->
-                    <a class="nav-link" href="#">任务管理</a>
+                    <a class="nav-link" href="task">任务管理</a>
                 </li>
             </ul>
         </div>
