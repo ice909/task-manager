@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.sxgkd.mapper.UserMapper">
+    <!--封装重复的sql-->
+    <sql id="selectAllColumns">
+        select * from user
+    </sql>
     <!--新增用户-->
     <insert id="insert" parameterType="user">
         insert into user (username, password, email, role)
@@ -9,8 +13,7 @@
     </insert>
     <!--根据Id获取用户-->
     <select id="selectById" resultType="user" parameterType="int">
-        select *
-        from user
+        <include refid="selectAllColumns" />
         where id = #{id}
     </select>
     <!--修改用户信息-->
@@ -24,8 +27,7 @@
     </update>
     <!--获取所有用户-->
     <select id="selectAll" resultType="user">
-        select *
-        from user
+        <include refid="selectAllColumns" />
     </select>
     <!--删除用户-->
     <delete id="delete" parameterType="int">
@@ -35,16 +37,14 @@
     </delete>
     <!--根据用户名和密码查询用户-->
     <select id="selectByUsernameAndPassword" resultType="user" parameterType="map">
-        select *
-        from user
+        <include refid="selectAllColumns" />
         where username = #{username}
           and password = #{password}
     </select>
     <!-- 根据用户名模糊查询用户-->
     <select id="selectByUsernameBlur" resultType="user" parameterType="string">
         <bind name="search" value="'%'+username+'%'"/>
-        select *
-        from user
+        <include refid="selectAllColumns" />
         where username like #{search}
     </select>
 </mapper>

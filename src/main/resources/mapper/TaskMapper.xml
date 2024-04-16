@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.sxgkd.mapper.TaskMapper">
-    <!--获取所有任务-->
-    <select id="selectAll" resultType="task">
+    <!--封装重复的sql-->
+    <sql id="selectTaskWithUsernames">
         SELECT t.*,
                u1.username AS creatorName,
                u2.username AS assigneeName
@@ -12,17 +12,14 @@
              user u1 ON t.creatorId = u1.id
                  LEFT JOIN
              user u2 ON t.assigneeId = u2.id
+    </sql>
+    <!--获取所有任务-->
+    <select id="selectAll" resultType="task">
+        <include refid="selectTaskWithUsernames"/>
     </select>
     <!--根据Id获取任务-->
     <select id="selectById" resultType="task" parameterType="int">
-        SELECT t.*,
-               u1.username AS creatorName,
-               u2.username AS assigneeName
-        FROM task t
-                 LEFT JOIN
-             user u1 ON t.creatorId = u1.id
-                 LEFT JOIN
-             user u2 ON t.assigneeId = u2.id
+        <include refid="selectTaskWithUsernames"/>
         WHERE t.id = #{id}
     </select>
     <!--新增任务-->
@@ -32,14 +29,7 @@
     </insert>
     <!--获取用户的任务-->
     <select id="getTasksByUserId" resultType="task" parameterType="int">
-        SELECT t.*,
-               u1.username AS creatorName,
-               u2.username AS assigneeName
-        FROM task t
-                 LEFT JOIN
-             user u1 ON t.creatorId = u1.id
-                 LEFT JOIN
-             user u2 ON t.assigneeId = u2.id
+        <include refid="selectTaskWithUsernames"/>
         WHERE t.assigneeId = #{userId}
     </select>
     <!--分配任务-->
@@ -69,14 +59,7 @@
     <!-- 模糊查询任务 -->
     <select id="selectByTitleBlur" resultType="task" parameterType="string">
         <bind name="search" value="'%'+keyword+'%'"/>
-        SELECT t.*,
-               u1.username AS creatorName,
-               u2.username AS assigneeName
-        FROM task t
-                 LEFT JOIN
-             user u1 ON t.creatorId = u1.id
-                 LEFT JOIN
-             user u2 ON t.assigneeId = u2.id
+        <include refid="selectTaskWithUsernames"/>
         WHERE t.title LIKE #{search}
     </select>
 </mapper>
