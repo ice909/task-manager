@@ -9,8 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="fix: clicking task management cannot be redirected&#10;&#10;修复点击任务管理标签无法跳转到对应页面">
+    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="feat: match query using the bind tag&#10;&#10;使用bind标签替换模糊查询表达式&#10;移除不使用的接口">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/task.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,7 @@
         <option value="spring-beans.schema" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -76,6 +81,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/ice/work-space/task-manager/src/main/resources",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -318,7 +324,7 @@
       <workItem from="1713179789948" duration="10000" />
       <workItem from="1713179845571" duration="14000" />
       <workItem from="1713179866772" duration="14332000" />
-      <workItem from="1713251009830" duration="15111000" />
+      <workItem from="1713251009830" duration="19164000" />
     </task>
     <task id="LOCAL-00001" summary="feat: preliminary completion coding&#10;&#10;初步完成代码编写">
       <option name="closed" value="true" />
@@ -344,7 +350,31 @@
       <option name="project" value="LOCAL" />
       <updated>1713272758690</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: clicking task management cannot be redirected&#10;&#10;修复点击任务管理标签无法跳转到对应页面">
+      <option name="closed" value="true" />
+      <created>1713272781863</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713272781863</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: no transactions are configured for spring&#10;&#10;修复spring没有配置事务&#10;导致执行sql语句时会报如下警告：&#10;SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@19668295] was not registered for synchronization because synchronization is not active">
+      <option name="closed" value="true" />
+      <created>1713273895884</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713273895884</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: match query using the bind tag&#10;&#10;使用bind标签替换模糊查询表达式&#10;移除不使用的接口">
+      <option name="closed" value="true" />
+      <created>1713275743585</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713275743585</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +383,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: preliminary completion coding&#10;&#10;初步完成代码编写" />
     <MESSAGE value="fix: clicking task management cannot be redirected&#10;&#10;修复点击任务管理标签无法跳转到对应页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: clicking task management cannot be redirected&#10;&#10;修复点击任务管理标签无法跳转到对应页面" />
+    <MESSAGE value="fix: no transactions are configured for spring&#10;&#10;修复spring没有配置事务&#10;导致执行sql语句时会报如下警告：&#10;SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@19668295] was not registered for synchronization because synchronization is not active" />
+    <MESSAGE value="feat: match query using the bind tag&#10;&#10;使用bind标签替换模糊查询表达式&#10;移除不使用的接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: match query using the bind tag&#10;&#10;使用bind标签替换模糊查询表达式&#10;移除不使用的接口" />
   </component>
 </project>

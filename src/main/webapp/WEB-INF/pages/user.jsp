@@ -15,18 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>任务管理后台</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        html,
-        body {
-            height: 100%;
-            overflow: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.7.1.min.js"></script>
 </head>
 
