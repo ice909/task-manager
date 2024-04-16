@@ -43,7 +43,4 @@ public class TaskServiceImplTest {
     public void delete() {
     }
 
-    @Test
-    public void selectByKeyword() {
-    }
 }

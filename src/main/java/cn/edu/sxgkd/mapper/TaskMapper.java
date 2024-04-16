@@ -31,8 +31,5 @@ public interface TaskMapper {
     int delete(int id);
 
     // 模糊查询任务
-    List<Task> selectByKeyword(String keyword);
-
-    // 模糊查询任务
     List<Task> selectByTitleBlur(String keyword);
 }

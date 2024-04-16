@@ -65,15 +65,10 @@
         from task
         where id = #{id}
     </delete>
-    <!--模糊查询任务-->
-    <select id="selectByKeyword" resultType="task" parameterType="string">
-        select *
-        from task
-        where title like concat('%', #{keyword}, '%')
-    </select>
 
     <!-- 模糊查询任务 -->
     <select id="selectByTitleBlur" resultType="task" parameterType="string">
+        <bind name="search" value="'%'+keyword+'%'"/>
         SELECT t.*,
                u1.username AS creatorName,
                u2.username AS assigneeName
@@ -82,6 +77,6 @@
              user u1 ON t.creatorId = u1.id
                  LEFT JOIN
              user u2 ON t.assigneeId = u2.id
-        WHERE t.title LIKE CONCAT('%', #{keyword}, '%')
+        WHERE t.title LIKE #{search}
     </select>
 </mapper>

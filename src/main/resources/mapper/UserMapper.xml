@@ -33,12 +33,6 @@
         from user
         where id = #{id}
     </delete>
-    <!--模糊查询用户-->
-    <select id="selectByKeyword" resultType="user" parameterType="string">
-        select *
-        from user
-        where username like concat('%', #{keyword}, '%')
-    </select>
     <!--根据用户名和密码查询用户-->
     <select id="selectByUsernameAndPassword" resultType="user" parameterType="map">
         select *
@@ -48,8 +42,9 @@
     </select>
     <!-- 根据用户名模糊查询用户-->
     <select id="selectByUsernameBlur" resultType="user" parameterType="string">
+        <bind name="search" value="'%'+username+'%'"/>
         select *
         from user
-        where username like concat('%', #{username}, '%')
+        where username like #{search}
     </select>
 </mapper>

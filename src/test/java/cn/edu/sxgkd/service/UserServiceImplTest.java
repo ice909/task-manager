@@ -50,11 +50,4 @@ public class UserServiceImplTest {
         System.out.println(userService.delete(2));
     }
 
-    @Test
-    public void selectByKeyword() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        IUserService userService = applicationContext.getBean("userService", IUserService.class);
-//        System.out.println(userService.selectByKeyword("admin"));
-        System.out.println(userService.selectByUsernameBlur("a"));
-    }
 }
