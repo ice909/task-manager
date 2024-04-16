@@ -1,14 +1,18 @@
 package cn.edu.sxgkd.controller;
 
+import cn.edu.sxgkd.entity.LoginRequest;
 import cn.edu.sxgkd.entity.User;
 import cn.edu.sxgkd.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Controller
@@ -19,15 +23,20 @@ public class UserController {
 
     // 跳转到登录页面
     @RequestMapping("/")
-    public String toLogin(String msg) {
+    public String toLogin() {
         return "login";
     }
 
     // 登录
     @RequestMapping("login")
-    public String login(String username, String password, Model model) {
+    public String login(@Valid LoginRequest loginRequest, Errors errors, Model model) {
+        // 验证用户名和密码
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
+            return "login";
+        }
         // 查询用户和密码
-        User user = userService.selectByUsernameAndPassword(username, password);
+        User user = userService.selectByUsernameAndPassword(loginRequest.getUsername(), loginRequest.getPassword());
         if (user != null) {
             // 保存用户所有信息
             model.addAttribute("user", user);
@@ -67,7 +76,12 @@ public class UserController {
 
     // 添加用户
     @RequestMapping("addUser")
-    public String addUser(User user, Model model) {
+    public String addUser(@Valid User user, Errors errors, Model model) {
+        // 验证用户信息
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
+            return "user";
+        }
         // 添加用户
         userService.insert(user);
         // 查询所有用户
@@ -77,7 +91,12 @@ public class UserController {
 
     // 修改用户信息
     @RequestMapping("updateUser")
-    public String updateUser(User user, Model model) {
+    public String updateUser(@Valid User user, Errors errors, Model model) {
+        // 验证用户信息
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
+            return "user";
+        }
         // 修改用户
         userService.update(user);
         // 查询所有用户

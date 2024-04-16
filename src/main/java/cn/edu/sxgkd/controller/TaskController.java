@@ -6,8 +6,11 @@ import cn.edu.sxgkd.service.ITaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @SessionAttributes(value = {"user", "users", "tasks"}, types = {User.class, User.class, Task.class})
@@ -45,7 +48,11 @@ public class TaskController {
 
     // 添加任务
     @RequestMapping("addTask")
-    public String addTask(Task task, Model model) {
+    public String addTask(@Valid Task task, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
+            return "task";
+        }
         // 添加任务
         taskService.insert(task);
         // 获取所有任务
@@ -55,7 +62,11 @@ public class TaskController {
 
     // 修改任务
     @RequestMapping("updateTask")
-    public String updateTask(Task task, Model model) {
+    public String updateTask(@Valid Task task, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
+            return "task";
+        }
         // 修改任务
         taskService.update(task);
         // 获取所有任务

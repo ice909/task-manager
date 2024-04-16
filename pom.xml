@@ -17,6 +17,7 @@
     <junit.version>4.13.2</junit.version>
     <com.alibaba.druid.version>1.2.6</com.alibaba.druid.version>
     <jstl.version>1.2</jstl.version>
+    <org.hibernate.validator.verison>6.2.5.Final</org.hibernate.validator.verison>
   </properties>
   <dependencies>
     <dependency>
@@ -100,13 +101,16 @@
       <artifactId>druid</artifactId>
       <version>${com.alibaba.druid.version}</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>${jstl.version}</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${org.hibernate.validator.verison}</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>task-manager</finalName>

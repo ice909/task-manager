@@ -1,12 +1,22 @@
 package cn.edu.sxgkd.entity;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Task {
     private int id;
+    @NotBlank(message = "标题不能为空")
     private String title;
+    @NotBlank(message = "描述不能为空")
     private String description;
+    @NotBlank(message = "截止时间不能为空")
     private String deadline;
+    @NotBlank(message = "状态不能为空")
     private String status;
+    @NotNull(message = "创建者不能为空")
     private int creatorId;
+    @NotNull(message = "执行者不能为空")
     private int assigneeId;
     private String creatorName;
     private String assigneeName;
