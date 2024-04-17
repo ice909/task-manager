@@ -26,7 +26,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(String title, int id, String description, String deadline, String status, int creatorId, int assigneeId) {
+    public Task(int id,String title,  String description, String deadline, String status, int creatorId, int assigneeId) {
         this.title = title;
         this.id = id;
         this.description = description;

@@ -27,17 +27,6 @@
         insert into task (title, description, deadline, status, creatorId, assigneeId)
         values (#{title}, #{description}, #{deadline}, #{status}, #{creatorId}, #{assigneeId})
     </insert>
-    <!--获取用户的任务-->
-    <select id="getTasksByUserId" resultType="task" parameterType="int">
-        <include refid="selectTaskWithUsernames"/>
-        WHERE t.assigneeId = #{userId}
-    </select>
-    <!--分配任务-->
-    <update id="assignTask" parameterType="map">
-        update task
-        set assigneeId = #{userId}
-        where id = #{taskId}
-    </update>
     <!--修改任务信息-->
     <update id="update" parameterType="task">
         update task

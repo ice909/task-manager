@@ -30,16 +30,6 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
-    public List<Task> getTasksByUserId(int userId) {
-        return taskMapper.getTasksByUserId(userId);
-    }
-
-    @Override
-    public int assignTask(int taskId, int userId) {
-        return taskMapper.assignTask(taskId, userId);
-    }
-
-    @Override
     public int update(Task task) {
         return taskMapper.update(task);
     }

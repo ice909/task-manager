@@ -18,12 +18,6 @@ public interface TaskMapper {
     // 新增任务
     int insert(Task task);
 
-    // 获取用户的任务
-    List<Task> getTasksByUserId(int userId);
-
-    // 分配任务
-    int assignTask(int taskId, int userId);
-
     // 修改任务信息
     int update(Task task);
 

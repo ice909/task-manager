@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Controller

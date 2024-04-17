@@ -9,14 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="feat: use `sql` tags to encapsulate repeat sql&#10;&#10;使用`sql`标签封装重复的sql语句">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/entity/LoginRequest.java" afterDir="false" />
+    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="feat: add data check&#10;&#10;使用JSR 303 进行数据校验">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/entity/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/mapper/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/mapper/TaskMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/ITaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/ITaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TaskMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TaskMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cn/edu/sxgkd/service/TaskServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cn/edu/sxgkd/service/TaskServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +67,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.TaskServiceImplTest.delete.executor": "Run",
+    "JUnit.TaskServiceImplTest.getTasksByUserId.executor": "Run",
     "JUnit.TaskServiceImplTest.insert.executor": "Run",
     "JUnit.TaskServiceImplTest.selectAll.executor": "Run",
+    "JUnit.TaskServiceImplTest.selectById.executor": "Run",
+    "JUnit.TaskServiceImplTest.update.executor": "Run",
     "JUnit.UserServiceImplTest.delete.executor": "Run",
     "JUnit.UserServiceImplTest.insert.executor": "Run",
     "JUnit.UserServiceImplTest.selectAll.executor": "Run",
@@ -119,6 +125,38 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.86">
+    <configuration name="TaskServiceImplTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="task-manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.sxgkd.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.edu.sxgkd.service" />
+      <option name="MAIN_CLASS_NAME" value="cn.edu.sxgkd.service.TaskServiceImplTest" />
+      <option name="METHOD_NAME" value="delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskServiceImplTest.getTasksByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="task-manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.sxgkd.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.edu.sxgkd.service" />
+      <option name="MAIN_CLASS_NAME" value="cn.edu.sxgkd.service.TaskServiceImplTest" />
+      <option name="METHOD_NAME" value="getTasksByUserId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TaskServiceImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="task-manager" />
       <extension name="coverage">
@@ -135,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskServiceImplTest.selectAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskServiceImplTest.selectById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="task-manager" />
       <extension name="coverage">
         <pattern>
@@ -145,13 +183,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cn.edu.sxgkd.service" />
       <option name="MAIN_CLASS_NAME" value="cn.edu.sxgkd.service.TaskServiceImplTest" />
-      <option name="METHOD_NAME" value="selectAll" />
+      <option name="METHOD_NAME" value="selectById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceImplTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskServiceImplTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="task-manager" />
       <extension name="coverage">
         <pattern>
@@ -160,40 +198,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cn.edu.sxgkd.service" />
-      <option name="MAIN_CLASS_NAME" value="cn.edu.sxgkd.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="delete" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="task-manager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.edu.sxgkd.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.edu.sxgkd.service" />
-      <option name="MAIN_CLASS_NAME" value="cn.edu.sxgkd.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="insert" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplTest.selectByKeyword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="task-manager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.edu.sxgkd.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.edu.sxgkd.service" />
-      <option name="MAIN_CLASS_NAME" value="cn.edu.sxgkd.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="selectByKeyword" />
+      <option name="MAIN_CLASS_NAME" value="cn.edu.sxgkd.service.TaskServiceImplTest" />
+      <option name="METHOD_NAME" value="update" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -286,20 +292,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TaskServiceImplTest.selectAll" />
+      <item itemvalue="JUnit.TaskServiceImplTest.delete" />
+      <item itemvalue="JUnit.TaskServiceImplTest.getTasksByUserId" />
+      <item itemvalue="JUnit.TaskServiceImplTest.selectById" />
+      <item itemvalue="JUnit.TaskServiceImplTest.update" />
       <item itemvalue="JUnit.TaskServiceImplTest.insert" />
-      <item itemvalue="JUnit.UserServiceImplTest.delete" />
-      <item itemvalue="JUnit.UserServiceImplTest.insert" />
-      <item itemvalue="JUnit.UserServiceImplTest.selectByKeyword" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.86" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TaskServiceImplTest.selectAll" />
-        <item itemvalue="JUnit.UserServiceImplTest.insert" />
+        <item itemvalue="JUnit.TaskServiceImplTest.delete" />
         <item itemvalue="JUnit.TaskServiceImplTest.insert" />
-        <item itemvalue="JUnit.UserServiceImplTest.selectByKeyword" />
-        <item itemvalue="JUnit.UserServiceImplTest.delete" />
+        <item itemvalue="JUnit.TaskServiceImplTest.update" />
+        <item itemvalue="JUnit.TaskServiceImplTest.getTasksByUserId" />
+        <item itemvalue="JUnit.TaskServiceImplTest.selectById" />
       </list>
     </recent_temporary>
   </component>
@@ -326,7 +332,8 @@
       <workItem from="1713179789948" duration="10000" />
       <workItem from="1713179845571" duration="14000" />
       <workItem from="1713179866772" duration="14332000" />
-      <workItem from="1713251009830" duration="23739000" />
+      <workItem from="1713251009830" duration="24210000" />
+      <workItem from="1713313563442" duration="1770000" />
     </task>
     <task id="LOCAL-00001" summary="feat: preliminary completion coding&#10;&#10;初步完成代码编写">
       <option name="closed" value="true" />
@@ -392,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713277977160</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: add data check&#10;&#10;使用JSR 303 进行数据校验">
+      <option name="closed" value="true" />
+      <created>1713281728749</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713281728749</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +420,7 @@
     <MESSAGE value="feat: match query using the bind tag&#10;&#10;使用bind标签替换模糊查询表达式&#10;移除不使用的接口" />
     <MESSAGE value="feat: extract css code&#10;&#10;抽取每个页面的公共css 代码到global.css 中&#10;在其他页面中可以直接引入这个css文件" />
     <MESSAGE value="feat: use `sql` tags to encapsulate repeat sql&#10;&#10;使用`sql`标签封装重复的sql语句" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: use `sql` tags to encapsulate repeat sql&#10;&#10;使用`sql`标签封装重复的sql语句" />
+    <MESSAGE value="feat: add data check&#10;&#10;使用JSR 303 进行数据校验" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add data check&#10;&#10;使用JSR 303 进行数据校验" />
   </component>
 </project>

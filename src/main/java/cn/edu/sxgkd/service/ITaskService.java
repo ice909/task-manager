@@ -11,10 +11,6 @@ public interface ITaskService {
 
     int insert(Task task);
 
-    List<Task> getTasksByUserId(int userId);
-
-    int assignTask(int taskId, int userId);
-
     int update(Task task);
 
     int delete(int id);

@@ -17,12 +17,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #9ec5fe;
+            background-color: #f7f9fb;
+        }
+        .card {
+            border-color: transparent;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
     </style>
 </head>
 <body>
-<div class="card" style="width: 350px;">
+<div class="card fat" style="width: 350px;">
     <div class="card-body">
         <h2 style="text-align: center;">登录</h2>
         <form class="row g-3 needs-validation" action="login" method="post" novalidate>
