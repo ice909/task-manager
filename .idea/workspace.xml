@@ -10,9 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="feat: added global exception handling&#10;&#10;添加全局异常处理">
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/default.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/exception/OperationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/exception/OperationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/task.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +36,8 @@
         <option value="JUnit4 Test Class" />
         <option value="spring-beans.schema" />
         <option value="CSS File" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -82,7 +91,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/ice/work-space/task-manager/src/main/resources",
+    "last_opened_file_path": "/home/ice/work-space/task-manager/src/main/webapp/img",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -103,6 +112,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/img" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -327,7 +337,8 @@
       <workItem from="1713179845571" duration="14000" />
       <workItem from="1713179866772" duration="14332000" />
       <workItem from="1713251009830" duration="24210000" />
-      <workItem from="1713313563442" duration="7124000" />
+      <workItem from="1713313563442" duration="11050000" />
+      <workItem from="1713340315460" duration="6881000" />
     </task>
     <task id="LOCAL-00001" summary="feat: preliminary completion coding&#10;&#10;初步完成代码编写">
       <option name="closed" value="true" />
@@ -425,7 +436,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713321748341</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat: added global exception handling&#10;&#10;添加全局异常处理">
+      <option name="closed" value="true" />
+      <created>1713322142298</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713322142298</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
