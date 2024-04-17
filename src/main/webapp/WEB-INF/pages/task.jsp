@@ -17,6 +17,15 @@
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.7.1.min.js"></script>
+    <style>
+        /** 表格内容垂直居中 **/
+        th {
+            vertical-align: middle !important;
+        }
+        td {
+            vertical-align: middle !important;
+        }
+    </style>
 </head>
 
 <body>
