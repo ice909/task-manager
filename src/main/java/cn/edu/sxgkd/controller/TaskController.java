@@ -2,11 +2,13 @@ package cn.edu.sxgkd.controller;
 
 import cn.edu.sxgkd.entity.Task;
 import cn.edu.sxgkd.entity.User;
+import cn.edu.sxgkd.exception.OperationException;
 import cn.edu.sxgkd.service.ITaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -50,8 +52,7 @@ public class TaskController {
     @RequestMapping("addTask")
     public String addTask(@Valid Task task, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
-            return "task";
+            throw new OperationException(errors.getAllErrors());
         }
         // 添加任务
         taskService.insert(task);
@@ -64,8 +65,7 @@ public class TaskController {
     @RequestMapping("updateTask")
     public String updateTask(@Valid Task task, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
-            return "task";
+            throw new OperationException(errors.getAllErrors());
         }
         // 修改任务
         taskService.update(task);

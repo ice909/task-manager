@@ -2,6 +2,7 @@ package cn.edu.sxgkd.controller;
 
 import cn.edu.sxgkd.entity.LoginRequest;
 import cn.edu.sxgkd.entity.User;
+import cn.edu.sxgkd.exception.OperationException;
 import cn.edu.sxgkd.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,8 +32,7 @@ public class UserController {
     public String login(@Valid LoginRequest loginRequest, Errors errors, Model model) {
         // 验证用户名和密码
         if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
-            return "login";
+            throw new OperationException("用户名或者密码为空");
         }
         // 查询用户和密码
         User user = userService.selectByUsernameAndPassword(loginRequest.getUsername(), loginRequest.getPassword());
@@ -43,9 +43,7 @@ public class UserController {
             // 登录成功进行跳转
             return "redirect:/task";
         }
-        // 用户名或密码错误
-        model.addAttribute("msg", "用户名或密码错误");
-        return "login";
+        throw new OperationException("用户名或密码错误");
     }
 
     // 退出登录
@@ -78,8 +76,7 @@ public class UserController {
     public String addUser(@Valid User user, Errors errors, Model model) {
         // 验证用户信息
         if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
-            return "user";
+            throw new OperationException(errors.getAllErrors());
         }
         // 添加用户
         userService.insert(user);
@@ -93,8 +90,7 @@ public class UserController {
     public String updateUser(@Valid User user, Errors errors, Model model) {
         // 验证用户信息
         if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
-            return "user";
+            throw new OperationException(errors.getAllErrors());
         }
         // 修改用户
         userService.update(user);
