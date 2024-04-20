@@ -38,8 +38,14 @@
     <!--根据用户名和密码查询用户-->
     <select id="selectByUsernameAndPassword" resultType="user" parameterType="map">
         <include refid="selectAllColumns" />
-        where username = #{username}
-          and password = #{password}
+        <where>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+        </where>
     </select>
     <!-- 根据用户名模糊查询用户-->
     <select id="selectByUsernameBlur" resultType="user" parameterType="string">

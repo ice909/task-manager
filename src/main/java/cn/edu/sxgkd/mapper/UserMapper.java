@@ -26,7 +26,7 @@ public interface UserMapper {
     int delete(int id);
 
     // 根据用户名和密码查询用户
-    User selectByUsernameAndPassword(Map map);
+    User selectByUsernameAndPassword(Map<String,String> map);
 
     // 根据用户名查询用户
     List<User> selectByUsernameBlur(String username);
