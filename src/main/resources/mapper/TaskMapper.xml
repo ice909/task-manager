@@ -51,4 +51,19 @@
         <include refid="selectTaskWithUsernames"/>
         WHERE t.title LIKE #{search}
     </select>
+
+<!--    根据标题和描述模糊查询-->
+    <select id="selectByTitleAndDescriptionBlur" resultType="task" parameterType="map">
+        <bind name="titleSearch" value="'%'+title+'%'"/>
+        <bind name="descriptionSearch" value="'%'+description+'%'"/>
+        <include refid="selectTaskWithUsernames"/>
+        <where>
+            <if test="title != null and title != ''">
+                AND t.title LIKE #{titleSearch}
+            </if>
+            <if test="description != null and description != ''">
+                AND t.description LIKE #{descriptionSearch}
+            </if>
+        </where>
+    </select>
 </mapper>

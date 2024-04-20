@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 
-<html>
+<html data-bs-theme="dark">
 <head>
     <title>登录</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
@@ -17,39 +17,43 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f7f9fb;
+            background-image: url("${pageContext.request.contextPath}/img/login-bg.jpg");
+            background-size: cover;
+
         }
-        .card {
-            border-color: transparent;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        .login-card {
+            padding: 30px;
+            border-radius: 10px;
+            /*毛玻璃背景*/
+            background: rgba(255, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            box-shadow:inset 0 0 6px rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
-<div class="card fat" style="width: 350px;">
-    <div class="card-body">
+<div class="login-card" style="width: 350px;">
         <h2 style="text-align: center;">登录</h2>
         <form class="row g-3 needs-validation" action="login" method="post" novalidate>
             <div class="col-md-12" style="margin-top: 20px;">
-                <label for="username" class="form-label">用户名</label>
+                <label for="username" class="form-label card-text">用户名</label>
                 <input type="text" class="form-control" id="username" name="username" required>
                 <div class="invalid-feedback">
                     必须填写用户名
                 </div>
             </div>
             <div class="col-md-12 has-validation">
-                <label for="password" class="form-label">密码</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <label for="password" class="form-label card-text">密码</label>
+                <input type="password" class="form-control form-" id="password" name="password" required>
                 <div class="invalid-feedback">
                     必须填写密码
                 </div>
             </div>
-            <span style="color: red;">${requestScope.msg}</span>
             <div class="d-grid gap-2" style="margin-top: 50px;">
                 <button type="submit" class="btn btn-primary">登录</button>
             </div>
         </form>
-    </div>
 </div>
 
 <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>

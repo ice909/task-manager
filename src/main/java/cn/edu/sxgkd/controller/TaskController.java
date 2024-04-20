@@ -58,7 +58,7 @@ public class TaskController {
         taskService.insert(task);
         // 获取所有任务
         model.addAttribute("tasks", taskService.selectAll());
-        return "task";
+        return "redirect:/task";
     }
 
     // 修改任务

@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="feat: add back btn on error page&#10;&#10;异常页面添加返回按钮">
+    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="feat: use dynamic sql tags&#10;&#10;使用动态sql标签&#10;消除Map警告">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/login-bg.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TaskMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TaskMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/global.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +333,8 @@
       <workItem from="1713251009830" duration="24210000" />
       <workItem from="1713313563442" duration="11050000" />
       <workItem from="1713340315460" duration="6881000" />
-      <workItem from="1713603710078" duration="3088000" />
+      <workItem from="1713603710078" duration="6655000" />
+      <workItem from="1713625449051" duration="504000" />
     </task>
     <task id="LOCAL-00001" summary="feat: preliminary completion coding&#10;&#10;初步完成代码编写">
       <option name="closed" value="true" />
@@ -444,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713603916261</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat: use dynamic sql tags&#10;&#10;使用动态sql标签&#10;消除Map警告">
+      <option name="closed" value="true" />
+      <created>1713607664520</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713607664520</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,6 +485,7 @@
     <MESSAGE value="fix: th content no vCenter&#10;&#10;修复表格内容没有垂直居中" />
     <MESSAGE value="feat: added global exception handling&#10;&#10;添加全局异常处理" />
     <MESSAGE value="feat: add back btn on error page&#10;&#10;异常页面添加返回按钮" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add back btn on error page&#10;&#10;异常页面添加返回按钮" />
+    <MESSAGE value="feat: use dynamic sql tags&#10;&#10;使用动态sql标签&#10;消除Map警告" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: use dynamic sql tags&#10;&#10;使用动态sql标签&#10;消除Map警告" />
   </component>
 </project>

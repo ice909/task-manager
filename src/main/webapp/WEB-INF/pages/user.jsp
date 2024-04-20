@@ -28,7 +28,7 @@
     </style>
 </head>
 
-<body>
+<body style="overflow: scroll">
 <!-- 顶部导航栏 -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
