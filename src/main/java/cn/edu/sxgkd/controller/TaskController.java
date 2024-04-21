@@ -12,76 +12,66 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
-@SessionAttributes(value = {"user", "users", "tasks"}, types = {User.class, User.class, Task.class})
 public class TaskController {
     @Autowired
     private ITaskService taskService;
 
     // 跳转到任务管理页面
     @RequestMapping("task")
-    public String task(Model model) {
+    public String task(HttpSession httpSession, Model model) {
+        User user = (User) httpSession.getAttribute("user");
+        List<User> users = (List<User>) httpSession.getAttribute("users");
         // 防止直接访问task页面
-        if (model.getAttribute("user") == null) {
+        if (user == null) {
             return "login";
         }
-        System.out.println(model.getAttribute("user"));
-        model.addAttribute("user", model.getAttribute("user"));
-        // 获取所有任务
+        model.addAttribute("user", user);
+        model.addAttribute("users", users);
         model.addAttribute("tasks", taskService.selectAll());
         System.out.println(model.getAttribute("tasks"));
         return "task";
     }
 
-    // 搜索任务
+    // 模糊搜索任务
     @RequestMapping("searchTask")
-    public String search(String key, String keyword, Model model) {
-        // 防止直接访问search页面
-        if (model.getAttribute("user") == null) {
-            return "login";
-        }
-        System.out.println(model.getAttribute("user"));
-        // 模糊搜索任务
+    public String search(String key, String keyword, HttpSession httpSession, Model model) {
         model.addAttribute("tasks", taskService.selectByKeyword(key, keyword));
         return "task";
     }
 
     // 添加任务
     @RequestMapping("addTask")
-    public String addTask(@Valid Task task, Errors errors, Model model) {
+    public String addTask(@Valid Task task, Errors errors) {
         if (errors.hasErrors()) {
             throw new OperationException(errors.getAllErrors());
         }
         // 添加任务
         taskService.insert(task);
-        // 获取所有任务
-        model.addAttribute("tasks", taskService.selectAll());
         return "redirect:/task";
     }
 
     // 修改任务
     @RequestMapping("updateTask")
-    public String updateTask(@Valid Task task, Errors errors, Model model) {
+    public String updateTask(@Valid Task task, Errors errors) {
         if (errors.hasErrors()) {
             throw new OperationException(errors.getAllErrors());
         }
         // 修改任务
         taskService.update(task);
-        // 获取所有任务
-        model.addAttribute("tasks", taskService.selectAll());
-        return "task";
+        return "redirect:/task";
     }
 
     // 删除任务
     @RequestMapping("deleteTask")
-    public String deleteTask(int id, Model model) {
+    public String deleteTask(int id) {
         // 删除任务
         taskService.delete(id);
-        // 获取所有任务
-        model.addAttribute("tasks", taskService.selectAll());
-        return "task";
+        return "redirect:/task";
     }
 
 }

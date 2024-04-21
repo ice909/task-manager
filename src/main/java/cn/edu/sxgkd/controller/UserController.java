@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.Objects;
+import java.util.List;
 
 @Controller
-@SessionAttributes(value = {"user", "users"}, types = {User.class, User.class})
 public class UserController {
     @Autowired
     private IUserService userService;
@@ -29,7 +29,7 @@ public class UserController {
 
     // 登录
     @RequestMapping("login")
-    public String login(@Valid LoginRequest loginRequest, Errors errors, Model model) {
+    public String login(@Valid LoginRequest loginRequest, Errors errors, HttpSession httpSession) {
         // 验证用户名和密码
         if (errors.hasErrors()) {
             throw new OperationException("用户名或者密码为空");
@@ -37,9 +37,10 @@ public class UserController {
         // 查询用户和密码
         User user = userService.selectByUsernameAndPassword(loginRequest.getUsername(), loginRequest.getPassword());
         if (user != null) {
+            List<User> users = userService.selectAll();
             // 保存用户所有信息
-            model.addAttribute("user", user);
-            model.addAttribute("users", userService.selectAll());
+            httpSession.setAttribute("user", user);
+            httpSession.setAttribute("users", users);
             // 登录成功进行跳转
             return "redirect:/task";
         }
@@ -48,65 +49,55 @@ public class UserController {
 
     // 退出登录
     @RequestMapping("logout")
-    public String logout(SessionStatus sessionStatus, Model model) {
-        model.addAttribute("user", null);
-        sessionStatus.setComplete();
-        return "login";
+    public String logout(HttpSession httpSession) {
+        // 清除session
+        httpSession.invalidate();
+        return "redirect:/";
     }
 
     // 跳转到用户管理页面
     @RequestMapping("user")
-    public String user(Model model) {
+    public String user(HttpSession httpSession,Model model) {
         System.out.println(model.getAttribute("user"));
         // 防止直接访问user页面
-        if (model.getAttribute("user") == null) {
+        if (httpSession.getAttribute("user") == null) {
             return "login";
         }
-        // 防止普通用户访问
-        if (Objects.equals(Objects.requireNonNull((User) model.getAttribute("user")).getRole(), "USER")) {
-            return "task";
-        }
         // 查询所有用户
-        model.addAttribute("users", userService.selectAll());
+        httpSession.setAttribute("users", userService.selectAll());
         return "user";
     }
 
     // 添加用户
     @RequestMapping("addUser")
-    public String addUser(@Valid User user, Errors errors, Model model) {
+    public String addUser(@Valid User u, Errors errors) {
         // 验证用户信息
         if (errors.hasErrors()) {
             throw new OperationException(errors.getAllErrors());
         }
         // 添加用户
-        userService.insert(user);
-        // 查询所有用户
-        model.addAttribute("users", userService.selectAll());
-        return "user";
+        userService.insert(u);
+        return "redirect:/user";
     }
 
     // 修改用户信息
     @RequestMapping("updateUser")
-    public String updateUser(@Valid User user, Errors errors, Model model) {
+    public String updateUser(@Valid User user, Errors errors) {
         // 验证用户信息
         if (errors.hasErrors()) {
             throw new OperationException(errors.getAllErrors());
         }
         // 修改用户
         userService.update(user);
-        // 查询所有用户
-        model.addAttribute("users", userService.selectAll());
-        return "user";
+        return "redirect:/user";
     }
 
     // 删除用户
     @RequestMapping("deleteUser")
-    public String deleteUser(int id, Model model) {
+    public String deleteUser(int id) {
         // 删除用户
         userService.delete(id);
-        // 查询所有用户
-        model.addAttribute("users", userService.selectAll());
-        return "user";
+        return "redirect:/user";
     }
 
     // 搜索用户
