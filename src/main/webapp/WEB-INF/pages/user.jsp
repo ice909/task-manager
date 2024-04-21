@@ -58,23 +58,25 @@
     </div>
 </nav>
 <div style="padding-top: 60px;padding-left: 10px;padding-right: 10px">
-    <form action="searchUser" method="post" class="row g-3">
-        <div class="col-auto">
-            <select class="form-select" name="key">
-                <option value="username">用户名</option>
-            </select>
-        </div>
-        <div class="col-auto">
-            <input type="text" name="keyword" class="form-control" placeholder="搜索">
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">搜索</button>
-        </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#add">添加用户
-            </button>
-        </div>
-    </form>
+    <div class="card" style="padding: 10px;">
+        <form action="searchUser" method="post" class="row g-3">
+            <div class="col-auto">
+                <select class="form-select" name="key">
+                    <option value="username">用户名</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="keyword" class="form-control" placeholder="搜索">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">搜索</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">添加用户
+                </button>
+            </div>
+        </form>
+    </div>
     <%--    渲染users--%>
     <table class="table table-striped">
         <thead>

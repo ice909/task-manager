@@ -64,23 +64,25 @@
 </nav>
 
 <div style="padding-top: 60px;padding-left: 10px;padding-right: 10px">
-    <form action="searchTask" method="post" class="row g-3">
-        <div class="col-auto">
-            <select class="form-select" name="key">
-                <option value="title">任务名称</option>
-            </select>
-        </div>
-        <div class="col-auto">
-            <input type="text" name="keyword" class="form-control" placeholder="搜索">
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">搜索</button>
-        </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#add">创建任务
-            </button>
-        </div>
-    </form>
+    <div class="card" style="padding: 10px;">
+            <form action="searchTask" method="post" class="row g-3">
+                <div class="col-auto">
+                    <select class="form-select" name="key">
+                        <option value="title">任务名称</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <input type="text" name="keyword" class="form-control" placeholder="搜索">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">搜索</button>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">创建任务
+                    </button>
+                </div>
+            </form>
+    </div>
     <%--    渲染users--%>
     <table class="table table-striped">
         <thead>

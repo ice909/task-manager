@@ -8,3 +8,7 @@ html,
 body {
     width: 100%;
 }
+
+table {
+    margin-top: 10px;
+}
