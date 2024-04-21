@@ -30,31 +30,33 @@
 
 <body style="overflow-y: scroll">
 <!-- 顶部导航栏 -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" aria-label="Thirteenth navbar example">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">任务管理系统</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"> <!-- 如果是管理员登录，高亮用户管理标签 -->
-                    <a class="nav-link active" href="javascript:void(0)">用户管理</a>
-                </li>
-                <li class="nav-item"> <!-- 普通用户管理标签 -->
+        <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+            <a class="navbar-brand col-lg-3 me-0" href="#">任务管理系统</a>
+            <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                <c:if test="${user.role == 'ADMIN'}">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:void(0)">用户管理</a>
+                    </li>
+                </c:if>
+                <!-- 普通用户管理标签 -->
+                <li class="nav-item">
                     <a class="nav-link" href="task">任务管理</a>
                 </li>
             </ul>
-        </div>
-        <div class="btn-group">
-            <div class="dropdown" style="margin-right: 20px;">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                    ${user.username}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 92px;">
-                    <li style="width: 92px;"><a class="dropdown-item" href="logout">退出登录</a></li>
-                </ul>
+            <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <div class="dropdown" style="margin-right: 20px;">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        ${user.username}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 92px;">
+                        <li style="width: 92px;"><a class="dropdown-item" href="logout">退出登录</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-
     </div>
 </nav>
 <div style="padding-top: 60px;padding-left: 10px;padding-right: 10px">
