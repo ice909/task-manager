@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -38,15 +40,15 @@ public class TaskController {
     }
 
     // 模糊搜索任务
-    @RequestMapping("searchTask")
-    public String search(String key, String keyword, String desc, HttpSession httpSession, Model model) {
-        System.out.println(key + keyword + desc);
-        model.addAttribute("tasks", taskService.selectByKeyword(key, keyword, desc));
+    @GetMapping("searchTask")
+    public String search(String title, String desc, Model model) {
+        System.out.println(title + desc);
+        model.addAttribute("tasks", taskService.selectByTitleAndDesc(title, desc));
         return "task";
     }
 
     // 添加任务
-    @RequestMapping("addTask")
+    @PostMapping("addTask")
     public String addTask(@Valid Task task, Errors errors) {
         if (errors.hasErrors()) {
             throw new OperationException(errors.getAllErrors());
@@ -57,7 +59,7 @@ public class TaskController {
     }
 
     // 修改任务
-    @RequestMapping("updateTask")
+    @PostMapping("updateTask")
     public String updateTask(@Valid Task task, Errors errors) {
         if (errors.hasErrors()) {
             throw new OperationException(errors.getAllErrors());
@@ -68,7 +70,7 @@ public class TaskController {
     }
 
     // 删除任务
-    @RequestMapping("deleteTask")
+    @GetMapping("deleteTask")
     public String deleteTask(int id) {
         // 删除任务
         taskService.delete(id);

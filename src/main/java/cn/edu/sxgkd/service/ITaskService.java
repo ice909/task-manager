@@ -15,5 +15,5 @@ public interface ITaskService {
 
     int delete(int id);
 
-    List<Task> selectByKeyword(String key, String keyword, String desc);
+    List<Task> selectByTitleAndDesc(String title, String desc);
 }

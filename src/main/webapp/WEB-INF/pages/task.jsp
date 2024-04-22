@@ -62,14 +62,15 @@
 
 <div style="padding-top: 60px;padding-left: 10px;padding-right: 10px">
     <div class="card" style="padding: 10px;">
-            <form action="searchTask" method="post" class="row g-3">
+            <form action="searchTask" method="get" class="row g-3">
                 <div class="col-auto">
-                    <select class="form-select" name="key">
-                        <option value="title">任务名称</option>
-                    </select>
+                    <label class="col-form-label">任务标题</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" name="keyword" class="form-control" placeholder="搜索">
+                    <input type="text" name="title" class="form-control" placeholder="请输入任务标题">
+                </div>
+                <div class="col-auto">
+                    <label class="col-form-label">任务描述</label>
                 </div>
                 <div class="col-auto">
                     <input type="text" class="form-control" name="desc" placeholder="请输入描述">
@@ -242,7 +243,7 @@
     </div>
 </form>
 <%--删除对话框--%>
-<form action="deleteTask" method="post" class="row g-3">
+<form action="deleteTask" method="get" class="row g-3">
     <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

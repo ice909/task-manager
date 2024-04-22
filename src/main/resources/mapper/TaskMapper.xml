@@ -45,13 +45,6 @@
         where id = #{id}
     </delete>
 
-    <!-- 模糊查询任务 -->
-    <select id="selectByTitleBlur" resultType="task" parameterType="string">
-        <bind name="search" value="'%'+keyword+'%'"/>
-        <include refid="selectTaskWithUsernames"/>
-        WHERE t.title LIKE #{search}
-    </select>
-
     <!--根据标题和描述模糊查询-->
     <select id="selectByTitleAndDescriptionBlur" resultType="task" parameterType="map">
         <bind name="titleSearch" value="'%'+title+'%'"/>

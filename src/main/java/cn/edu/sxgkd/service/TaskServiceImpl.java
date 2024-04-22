@@ -42,13 +42,10 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
-    public List<Task> selectByKeyword(String key, String keyword, String desc) {
-        if (key.equals("title")) {
+    public List<Task> selectByTitleAndDesc(String title, String desc) {
             Map<String,String> map = new HashMap<>();
-            map.put("title",keyword);
+            map.put("title",title);
             map.put("description",desc);
             return taskMapper.selectByTitleAndDescriptionBlur(map);
-        }
-        return taskMapper.selectAll();
     }
 }
