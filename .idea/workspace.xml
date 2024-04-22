@@ -9,12 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="feat: use dynamic sql search&#10;&#10;使用动态sql查询任务">
+    <list default="true" id="9c01b251-aebd-4522-b299-0388778ea3ec" name="Changes" comment="chore: adjust search bar ui&#10;&#10;调整搜索栏样式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/ITaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/ITaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/sxgkd/service/TaskServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/task.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,7 +337,7 @@
       <workItem from="1713709788486" duration="464000" />
       <workItem from="1713753645030" duration="2444000" />
       <workItem from="1713760078465" duration="1297000" />
-      <workItem from="1713765997249" duration="6627000" />
+      <workItem from="1713765997249" duration="7291000" />
     </task>
     <task id="LOCAL-00001" summary="feat: preliminary completion coding&#10;&#10;初步完成代码编写">
       <option name="closed" value="true" />
@@ -535,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713779388501</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="chore: adjust search bar ui&#10;&#10;调整搜索栏样式">
+      <option name="closed" value="true" />
+      <created>1713780038712</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713780038712</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,6 +578,7 @@
     <MESSAGE value="chore: adjust nav-bar style&#10;&#10;调整导航栏样式" />
     <MESSAGE value="feat: add 404 page&#10;&#10;添加404页面" />
     <MESSAGE value="feat: use dynamic sql search&#10;&#10;使用动态sql查询任务" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: use dynamic sql search&#10;&#10;使用动态sql查询任务" />
+    <MESSAGE value="chore: adjust search bar ui&#10;&#10;调整搜索栏样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: adjust search bar ui&#10;&#10;调整搜索栏样式" />
   </component>
 </project>
