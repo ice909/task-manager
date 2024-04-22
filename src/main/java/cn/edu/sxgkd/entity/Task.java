@@ -3,6 +3,7 @@ package cn.edu.sxgkd.entity;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 public class Task {
     private int id;
@@ -12,7 +13,7 @@ public class Task {
     private String description;
     @NotBlank(message = "截止时间不能为空")
     private String deadline;
-    @NotBlank(message = "状态不能为空")
+    @Pattern(regexp = "TODO|IN_PROGRESS|COMPLETED", message = "状态只能是TODO, IN_PROGRESS, 或 COMPLETED")
     private String status;
     @NotNull(message = "创建者不能为空")
     private int creatorId;

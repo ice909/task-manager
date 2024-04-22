@@ -61,7 +61,7 @@ public class TaskController {
 
     // 添加任务
     @PostMapping("addTask")
-    public String addTask(@Valid Task task,Errors errors,Model model,HttpSession session) {
+    public String addTask(@Valid Task task,Errors errors,Model model) {
         if (errors.hasErrors()) {
             // 数据校验没有通过
             // 回到页面，将错误信息显示
@@ -76,7 +76,7 @@ public class TaskController {
         taskService.insert(task);
         return "redirect:/task";
     }
-    
+
     @GetMapping("toUpdateTask")
     public String toUpdateTask(int id, Model model,HttpSession session) {
         // 根据id查询任务
