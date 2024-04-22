@@ -24,16 +24,18 @@ public class UserController {
 
     // 跳转到登录页面
     @GetMapping("/")
-    public String toLogin() {
+    public String toLogin(Model model) {
+        model.addAttribute("loginRequest", new LoginRequest());
         return "login";
     }
 
     // 登录
     @RequestMapping("login")
-    public String login(@Valid LoginRequest loginRequest, Errors errors, HttpSession httpSession) {
+    public String login(@Valid LoginRequest loginRequest, Errors errors,Model model, HttpSession httpSession) {
         // 验证用户名和密码
         if (errors.hasErrors()) {
-            throw new OperationException("用户名或者密码为空");
+            model.addAttribute("errors", errors.getAllErrors());
+            return "login";
         }
         // 查询用户和密码
         User user = userService.selectByUsernameAndPassword(loginRequest.getUsername(), loginRequest.getPassword());
@@ -45,7 +47,8 @@ public class UserController {
             // 登录成功进行跳转
             return "redirect:/task";
         }
-        throw new OperationException("用户名或密码错误");
+        model.addAttribute("error", "用户名或密码错误");
+        return "login";
     }
 
     // 退出登录

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html data-bs-theme="dark">
 <head>
@@ -35,25 +36,24 @@
 <body>
 <div class="login-card" style="width: 350px;">
         <h2 style="text-align: center;">登录</h2>
-        <form class="row g-3 needs-validation" action="login" method="post" novalidate>
+        <form:form class="row g-3 needs-validation" action="login" method="post" modelAttribute="loginRequest">
             <div class="col-md-12" style="margin-top: 20px;">
                 <label for="username" class="form-label card-text">用户名</label>
-                <input type="text" class="form-control" id="username" name="username" required>
-                <div class="invalid-feedback">
-                    必须填写用户名
-                </div>
+                <form:input path="username" type="text" class="form-control" id="username" />
+                <form:errors path="username" cssClass="text-danger" />
             </div>
-            <div class="col-md-12 has-validation">
+            <div class="col-md-12">
                 <label for="password" class="form-label card-text">密码</label>
-                <input type="password" class="form-control form-" id="password" name="password" required>
-                <div class="invalid-feedback">
-                    必须填写密码
-                </div>
+                <form:password path="password" class="form-control form-" id="password" />
+                <form:errors path="password" cssClass="text-danger" />
+            </div>
+            <div class="col-md-12 text-danger">
+                ${error}
             </div>
             <div class="d-grid gap-2" style="margin-top: 50px;">
                 <button type="submit" class="btn btn-primary">登录</button>
             </div>
-        </form>
+        </form:form>
 </div>
 
 <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
