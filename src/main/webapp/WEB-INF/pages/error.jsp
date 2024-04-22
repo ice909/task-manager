@@ -5,17 +5,22 @@
   Time: 上午10:09
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <title>异常</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css"/>
 </head>
 <body>
-<h1>异常页面</h1>
-<%=request.getAttribute("errorMessage") == null ? "" : "失败原因：" + request.getAttribute("errorMessage")%>
-<br />
-<a href="javascript:history.go(-1)">返回</a>
+<%--异常页面--%>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="display-1">出错啦！</h1>
+            <h2><%=request.getAttribute("errorMessage") == null ? "" : "失败原因：" + request.getAttribute("errorMessage")%></h2>
+            <a href="javascript:history.go(-1)" class="btn btn-primary">返回</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>
