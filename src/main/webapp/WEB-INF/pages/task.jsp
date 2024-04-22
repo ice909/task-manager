@@ -72,6 +72,9 @@
                     <input type="text" name="keyword" class="form-control" placeholder="搜索">
                 </div>
                 <div class="col-auto">
+                    <input type="text" class="form-control" name="desc" placeholder="请输入描述">
+                </div>
+                <div class="col-auto">
                     <button type="submit" class="btn btn-primary">搜索</button>
                 </div>
                 <div class="col-auto">

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("taskService")
 @Transactional
@@ -40,9 +42,12 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
-    public List<Task> selectByKeyword(String key, String keyword) {
+    public List<Task> selectByKeyword(String key, String keyword, String desc) {
         if (key.equals("title")) {
-            return taskMapper.selectByTitleBlur(keyword);
+            Map<String,String> map = new HashMap<>();
+            map.put("title",keyword);
+            map.put("description",desc);
+            return taskMapper.selectByTitleAndDescriptionBlur(map);
         }
         return taskMapper.selectAll();
     }

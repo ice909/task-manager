@@ -39,8 +39,9 @@ public class TaskController {
 
     // 模糊搜索任务
     @RequestMapping("searchTask")
-    public String search(String key, String keyword, HttpSession httpSession, Model model) {
-        model.addAttribute("tasks", taskService.selectByKeyword(key, keyword));
+    public String search(String key, String keyword, String desc, HttpSession httpSession, Model model) {
+        System.out.println(key + keyword + desc);
+        model.addAttribute("tasks", taskService.selectByKeyword(key, keyword, desc));
         return "task";
     }
 

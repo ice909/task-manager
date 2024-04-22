@@ -52,7 +52,7 @@
         WHERE t.title LIKE #{search}
     </select>
 
-<!--    根据标题和描述模糊查询-->
+    <!--根据标题和描述模糊查询-->
     <select id="selectByTitleAndDescriptionBlur" resultType="task" parameterType="map">
         <bind name="titleSearch" value="'%'+title+'%'"/>
         <bind name="descriptionSearch" value="'%'+description+'%'"/>
